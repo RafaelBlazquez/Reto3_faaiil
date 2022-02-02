@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ascensor;
+use App\Models\Incidencia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 
 class HomeController extends Controller
 {
@@ -34,7 +37,9 @@ class HomeController extends Controller
             return view('operador');
         }
         if(Auth::user()->rol =="Tecnico"){
-            return view('tecnico');
+            $incidencias = Incidencia::orderBy('prioridad','asc')->get();
+            $ascensores = Ascensor::all();
+            return view('tecnico',['incidencias' => $incidencias,'ascensores' => $ascensores]);
         }
     }
     public function logout(Request $request)

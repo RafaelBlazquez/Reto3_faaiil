@@ -22,6 +22,7 @@ class AscensorFactory extends Factory
         return [
             'n_serie' => $this->faker->numberBetween(1000,9999),
             'modelo_id' => $this->faker->randomElement($nModelos),
+            'direccion'=>$this->faker->address(),
             'zona_id' => $this->faker->randomElement($nZonas),
             'segmento'=>$this->faker->randomElement(['industrial','hospital','comercial','residencial']),
             'sala_maquinas'=>$this->faker->boolean(),

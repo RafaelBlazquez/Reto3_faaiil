@@ -16,6 +16,7 @@ class CreateAscensorsTable extends Migration
         Schema::create('ascensors', function (Blueprint $table) {
             $table->integer('n_serie')->primary()->unsigned();
             $table->unsignedBigInteger('modelo_id');
+            $table->string('direccion');
             $table->unsignedBigInteger('zona_id');
             $table->enum('segmento',['industrial','hospital','comercial','residencial']);
             $table->boolean('sala_maquinas');
